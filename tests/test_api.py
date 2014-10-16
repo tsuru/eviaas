@@ -20,3 +20,9 @@ class APITestCase(unittest.TestCase):
 
         self.assertEqual(200, response.status_code)
         self.assertEqual("", response.data)
+
+    def test_unbind(self):
+        response = self.api.delete("/resources/myinstance/hostname/0.0.0.0")
+
+        self.assertEqual(200, response.status_code)
+        self.assertEqual("", response.data)
