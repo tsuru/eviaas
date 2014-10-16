@@ -14,3 +14,9 @@ class APITestCase(unittest.TestCase):
 
         self.assertEqual(201, response.status_code)
         self.assertEqual("", response.data)
+
+    def test_remove_instance(self):
+        response = self.api.delete("/resources/myinstance")
+
+        self.assertEqual(200, response.status_code)
+        self.assertEqual("", response.data)
