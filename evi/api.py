@@ -16,9 +16,11 @@ def add_instance():
 def remove_instance(name):
     return "", 200
 
+
 @app.route("/resources/<name>/hostname/<host>", methods=["DELETE"])
 def unbind(name, host):
     return "", 200
+
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=8888, debug=True)
