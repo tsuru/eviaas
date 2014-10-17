@@ -9,4 +9,4 @@ test: clean deps
 	@flake8 --max-line-length 110 .
 
 run: clean deps
-	@honcho start
+	@python evi/api.py
