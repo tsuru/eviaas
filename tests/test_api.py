@@ -1,4 +1,6 @@
 import unittest
+import json
+import os
 
 from evi import api
 
@@ -26,3 +28,13 @@ class APITestCase(unittest.TestCase):
 
         self.assertEqual(200, response.status_code)
         self.assertEqual("", response.data)
+
+    def test_bind(self):
+        os.environ["EVI_ENVIRONS"] = '{"KEY": "MYKEY"}'
+        response = self.api.post("/resources/myinstance", data={"hostname": "something.tsuru.io"})
+
+        self.assertEqual(201, response.status_code)
+
+        expected = {"KEY": "MYKEY"}
+        result = json.loads(response.data)
+        self.assertDictEqual(expected, result)
