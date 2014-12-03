@@ -17,12 +17,14 @@ def remove_instance(name):
     return "", 200
 
 
-@app.route("/resources/<name>/hostname/<host>", methods=["DELETE"])
-def unbind(name, host):
+@app.route("/resources/<name>/bind", methods=["DELETE"])
+@app.route("/resources/<name>/bind-app", methods=["DELETE"])
+def unbind(name):
     return "", 200
 
 
-@app.route("/resources/<name>", methods=["POST"])
+@app.route("/resources/<name>/bind", methods=["POST"])
+@app.route("/resources/<name>/bind-app", methods=["POST"])
 def bind(name):
     return os.environ.get("EVI_ENVIRONS", "{}"), 201
 

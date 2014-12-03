@@ -24,14 +24,30 @@ class APITestCase(unittest.TestCase):
         self.assertEqual("", response.data)
 
     def test_unbind(self):
-        response = self.api.delete("/resources/myinstance/hostname/0.0.0.0")
+        response = self.api.delete("/resources/myinstance/bind")
+
+        self.assertEqual(200, response.status_code)
+        self.assertEqual("", response.data)
+
+    def test_unbind_app(self):
+        response = self.api.delete("/resources/myinstance/bind-app")
 
         self.assertEqual(200, response.status_code)
         self.assertEqual("", response.data)
 
     def test_bind(self):
         os.environ["EVI_ENVIRONS"] = '{"KEY": "MYKEY"}'
-        response = self.api.post("/resources/myinstance", data={"hostname": "something.tsuru.io"})
+        response = self.api.post("/resources/myinstance/bind", data={"hostname": "something.tsuru.io"})
+
+        self.assertEqual(201, response.status_code)
+
+        expected = {"KEY": "MYKEY"}
+        result = json.loads(response.data)
+        self.assertDictEqual(expected, result)
+
+    def test_bind_app(self):
+        os.environ["EVI_ENVIRONS"] = '{"KEY": "MYKEY"}'
+        response = self.api.post("/resources/myinstance/bind-app", data={"hostname": "something.tsuru.io"})
 
         self.assertEqual(201, response.status_code)
 
