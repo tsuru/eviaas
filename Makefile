@@ -5,7 +5,7 @@ deps:
 	@pip install -r test-requirements.txt
 
 test: clean deps
-	@PYTHONPATH=. py.test -s --cov-report term-missing --cov .
+	@python -m unittest discover
 	@flake8 --max-line-length 110 .
 
 run: clean deps
