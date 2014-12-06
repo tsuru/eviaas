@@ -1,12 +1,12 @@
 eviaas
 ======
 
-environment variables injector as a service for [tsuru](http://tsuru.io)
+environment variables injector as a [service](http://tsuru.readthedocs.org/en/latest/services/index.html) for [tsuru](http://tsuru.io)
 
 About
 -----
 
-This service allows easily exposing external services to [tsuru](http://tsuru.io) applications. It works simply by injecting some predefined environment variables in the application after binding.
+This [service](http://tsuru.readthedocs.org/en/latest/services/index.html) allows easily exposing external services to [tsuru](http://tsuru.io) applications. It works simply by injecting some predefined environment variables in the application after binding.
 
 
 Example
