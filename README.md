@@ -12,7 +12,7 @@ This [service](http://tsuru.readthedocs.org/en/latest/services/index.html) allow
 Example
 -------
 
-Let's assume you have an external logging service running at `udp://my.log.service:9976` and you want to expose this value to applications without hardcoding it in them.
+Let's assume you have an external logging service running at `udp://my.log.service:9976` and you want to expose this value to applications without hardcoding it in them (as [the twelve factor methodology advises](http://12factor.net/config)). 
 
 First you will have to create the eviaas service application and add it to tsuru:
 ```
