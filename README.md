@@ -1,18 +1,18 @@
 eviaas
 ======
 
-environment variables injector as a service
+environment variables injector as a [service](http://tsuru.readthedocs.org/en/latest/services/index.html) for [tsuru](http://tsuru.io)
 
 About
 -----
 
-This service allows easily exposing external services to tsuru applications. It works simply by injecting some predefined environment variables in the application after binding.
+This [service](http://tsuru.readthedocs.org/en/latest/services/index.html) allows easily exposing external services to [tsuru](http://tsuru.io) applications. It works simply by injecting some predefined environment variables in the application after binding.
 
 
 Example
 -------
 
-Let's assume you have an external logging service running at `udp://my.log.service:9976` and you want to expose this value to applications without hardcoding it in them.
+Let's assume you have an external logging service running at `udp://my.log.service:9976` and you want to expose this value to applications without hardcoding it in them (as [the twelve factor methodology advises](http://12factor.net/config)). 
 
 First you will have to create the eviaas service application and add it to tsuru:
 ```
