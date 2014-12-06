@@ -36,7 +36,8 @@ $ cat >service_descriptor.yaml <<EOF
 $ crane create service_descriptor.yaml
 ```
 
-Now your tsuru has a new service called `my-log-service` and you can create instances and bind apps to it:
+Now your tsuru has a new service called `my-log-service` 
+and you can create instances:
 
 ```
 $ tsuru service-add my-log-service my-log-instance
@@ -47,7 +48,11 @@ $ tsuru service-list
 +----------------+-----------------+
 | my-log-service | my-log-instance |
 +----------------+-----------------+
+```
 
+And bind apps to it:
+
+```
 $ tsuru service-bind my-log-instance -a my-app
 Instance "my-log-instance" is now bound to the app "my-app".
 
@@ -58,3 +63,5 @@ The following environment variables are now available for use in your app:
 
 ```
 
+For info about what happens when you bind a service to an application,
+see http://docs.tsuru.io/en/latest/services/api.html#binding-an-app-to-a-service-instance
