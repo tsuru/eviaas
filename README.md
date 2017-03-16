@@ -12,7 +12,7 @@ This [service](http://tsuru.readthedocs.org/en/latest/services/index.html) allow
 Example
 -------
 
-Let's assume you have an external logging service running at `udp://my.log.service:9976` and you want to expose this value to applications without hardcoding it in them (as [the twelve factor methodology advises](http://12factor.net/config)). 
+Let's assume you have an external logging service running at `udp://my.log.service:9976` and you want to expose this value to applications without hardcoding it in them (as [the twelve factor methodology advises](http://12factor.net/config)).
 
 First you will have to create the eviaas service application and add it to tsuru:
 ```
@@ -29,18 +29,19 @@ $ git push git@192.168.50.4:my-log-service-api.git master
 $ cat >service_descriptor.yaml <<EOF
 > id: my-log-service
 > password: 1234
+> team: my_team
 > endpoint:
 >   production: http://my-log-service-api.192.168.50.4.nip.io
 > EOF
 
-$ crane create service_descriptor.yaml
+$ tsuru service-create service_descriptor.yaml
 ```
 
-Now your tsuru has a new service called `my-log-service` 
+Now your tsuru has a new service called `my-log-service`
 and you can create instances:
 
 ```
-$ tsuru service-add my-log-service my-log-instance
+$ tsuru service-instance-add my-log-service my-log-instance
 
 $ tsuru service-list
 +----------------+-----------------+
@@ -53,7 +54,7 @@ $ tsuru service-list
 And bind apps to it:
 
 ```
-$ tsuru service-bind my-log-instance -a my-app
+$ tsuru service-instance-bind my-log-service my-log-instance -a my-app
 Instance "my-log-instance" is now bound to the app "my-app".
 
 The following environment variables are now available for use in your app:
