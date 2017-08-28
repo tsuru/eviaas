@@ -12,6 +12,11 @@ def add_instance():
     return "", 201
 
 
+@app.route("/resources/<name>", methods=["PUT"])
+def update_instance(name):
+    return "", 200
+
+
 @app.route("/resources/<name>", methods=["DELETE"])
 def remove_instance(name):
     return "", 200
