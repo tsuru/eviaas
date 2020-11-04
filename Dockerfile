@@ -1,4 +1,4 @@
-FROM jfloff/alpine-python:2.7
+FROM python:3.9.0-alpine3.12
 
 ENV SOURCE_DIR /app
 RUN mkdir -p $SOURCE_DIR
