@@ -7,6 +7,11 @@ app = Flask(__name__)
 app.debug = os.environ.get("API_DEBUG", "0") in ("True", "true", "1")
 
 
+@app.route("/")
+def index():
+    return "tsuru/eviaas running", 200
+
+
 @app.route("/resources", methods=["POST"])
 def add_instance():
     return "", 201
