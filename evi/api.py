@@ -28,6 +28,7 @@ def remove_instance(name):
 
 
 @app.route("/resources/<name>/bind", methods=["DELETE"])
+@app.route("/resources/<name>/binds/jobs/<job-name>", methods=["DELETE"])
 @app.route("/resources/<name>/bind-app", methods=["DELETE"])
 def unbind(name):
     return "", 200
