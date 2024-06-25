@@ -1,5 +1,4 @@
-FROM python:3.9.0-alpine3.12
-
+FROM python:3.11.6-slim
 ENV SOURCE_DIR /app
 RUN mkdir -p $SOURCE_DIR
 WORKDIR $SOURCE_DIR

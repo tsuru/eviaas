@@ -28,7 +28,7 @@ def remove_instance(name):
 
 
 @app.route("/resources/<name>/bind", methods=["DELETE"])
-@app.route("/resources/<name>/binds/jobs/<job-name>", methods=["DELETE"])
+@app.route("/resources/<name>/binds/jobs/<job_name>", methods=["DELETE"])
 @app.route("/resources/<name>/bind-app", methods=["DELETE"])
 def unbind(name):
     return "", 200
@@ -36,7 +36,7 @@ def unbind(name):
 
 @app.route("/resources/<name>/bind", methods=["POST"])
 @app.route("/resources/<name>/bind-app", methods=["POST"])
-@app.route("/resources/<name>/binds/jobs/<job-name>", methods=["PUT"])
+@app.route("/resources/<name>/binds/jobs/<job_name>", methods=["PUT"])
 def bind(name):
     return os.environ.get("EVI_ENVIRONS", "{}"), 201
 
